@@ -33,24 +33,30 @@
       <div class="form-checkbox">
         <span class="label">Готов к переезду в Токио?</span>
         <div class="checkbox">
-          <label><input type="radio" name="trip"/> Да</label>
+          <label><input type="radio" v-model="relocate" name="trip" value="yes"/> Да</label>
         </div>
 
         <div class="checkbox">
-          <label><input type="radio" name="trip"/> Нет</label>
+          <label><input type="radio" v-model="relocate" name="trip" value="no"/> Нет</label>
         </div>
       </div>
 
       <div class="form-checkbox">
         <span class="label">Что знаешь во Vue?</span>
         <div class="checkbox">
-          <label><input type="checkbox"/> Vuex</label>
+          <label><input type="checkbox" value="vuex" name="skills" v-model="skills"/> Vuex</label>
         </div>
         <div class="checkbox">
-          <label><input type="checkbox"/> Vue CLI</label>
+          <label><input type="checkbox" value="cli" name="skills" v-model="skills"/> Vue CLI</label>
         </div>
         <div class="checkbox">
-          <label><input type="checkbox"/> Vue Router</label>
+          <label><input type="checkbox" value="router" name="skills" v-model="skills"/> Vue Router</label>
+        </div>
+      </div>
+      <div class="form-checkbox">
+        <span class="label">Правила компании</span>
+        <div class="checkbox">
+          <label><input type="checkbox" v-model="agree"/> С правилами согласен</label>
         </div>
       </div>
 
@@ -65,7 +71,10 @@
       return {
         name: '',
         age: 23,
-        city: 'spb'
+        city: 'spb',
+        relocate: null,
+        skills: [],
+        agree: false
       }
     },
     methods: {
@@ -74,6 +83,9 @@
           console.log('name:', this.name)
           console.log('age:', this.age)
           console.log('city:', this.city)
+          console.log('to Tokyo:', this.relocate)
+          console.log('Skills:', this.skills)
+          console.log('Agree:', this.agree)
         console.groupEnd()
       }
     }
