@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <form class="card">
+    <form class="card" @submit.prevent="eventHendler">
       <h1>Анкета на Vue разработчика!</h1>
       <div class="form-control">
         <label for="name">Как тебя зовут?</label>
@@ -53,7 +53,11 @@
 
 <script>
   export default {
-
+    methods: {
+      eventHendler() {
+        console.log('submit')
+      }
+    }
   }
 </script>
 
