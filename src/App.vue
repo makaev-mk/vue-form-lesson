@@ -4,21 +4,29 @@
       <h1>Анкета на Vue разработчика!</h1>
       <div class="form-control">
         <label for="name">Как тебя зовут?</label>
-        <input type="text" id="name" placeholder="Введи имя">
+        <input type="text"
+               id="name"
+               placeholder="Введи имя"
+               v-model.trim="name"
+        >
       </div>
 
       <div class="form-control">
         <label for="age">Выбери возраст</label>
-        <input type="number" id="age" value="20">
+        <input type="number"
+               id="age"
+               max="70"
+               v-model.number ="age"
+        >
       </div>
 
       <div class="form-control">
         <label for="city">Твой город</label>
-        <select id="city">
+        <select id="city" v-model="city">
           <option value="spb">Санкт-Петербург</option>
           <option value="msk">Москва</option>
           <option value="kzn">Казань</option>
-          <option selected value="nsk">Новосибирск</option>
+          <option value="nsk">Новосибирск</option>
         </select>
       </div>
 
@@ -53,9 +61,20 @@
 
 <script>
   export default {
+    data() {
+      return {
+        name: '',
+        age: 23,
+        city: 'spb'
+      }
+    },
     methods: {
       eventHendler() {
-        console.log('submit')
+        console.group('form data')
+          console.log('name:', this.name)
+          console.log('age:', this.age)
+          console.log('city:', this.city)
+        console.groupEnd()
       }
     }
   }
