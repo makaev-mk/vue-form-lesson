@@ -85,6 +85,7 @@ export default {
     async removePerson(id) {
      const person = this.people.find(person => person.id === id).firstName
      await axios.delete('https://vue-with-http-e97b6-default-rtdb.firebaseio.com/people/'+ id +'.json')
+     
       this.people = this.people.filter(person => person.id !== id)
       this.alert = {
        type: 'primary',
